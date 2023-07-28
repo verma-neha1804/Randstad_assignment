@@ -1,38 +1,120 @@
+/* styles.css */
+
+/* App */
 .App {
-  text-align: center;
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Card Container */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(calc(20% - 40px), 1fr));
+  gap: 50px;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Card */
+.card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: lightgrey ;
+  border-radius: 10px;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  max-width: 100%;
+  position: relative;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Item Count */
+.item-count {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #666;
+}
+
+/* Search Container */
+.search-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Item List */
+.item-list {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Item List Header */
+.item-list h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Item List Items */
+.item-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Item List Item */
+.item-list li {
+  cursor: pointer;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+ 
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  
+
+}
+
+.item-list li:hover {
+  background-color: #f1f1f1;
+}
+
+/* Seen Item */
+.item-list li.seen {
+  background-color: #aaffaa;
+}
+
+.card-label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.card.selected {
+  background-color: lightblue;
+}
+
+.item-count {
+  position: absolute;
+  top: -22px;
+  right: -12px;
+  background-color: #f44336;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  border-radius: 50%;
+  padding: 7px;
+  font-size: 12px;
+  
+  display: block;
 }

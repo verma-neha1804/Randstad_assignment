@@ -1,0 +1,37 @@
+.item-list {
+    margin-top: 20px;
+  }
+  
+  .item-list h2 {
+    margin-bottom: 10px;
+  }
+  
+  .item-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .item-list li {
+    cursor: pointer;
+    padding: 5px 0;
+    border-bottom: 1px solid black; 
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    max-width: 500px;
+    margin: auto;
+    margin-top: 10px;
+   
+   
+  }
+  
+  .item-list li:last-child {
+    border-bottom: none; 
+  }
+  
+  .item-list li.seen {
+    text-decoration: line-through; 
+    color: #999; 
+  }
+  
