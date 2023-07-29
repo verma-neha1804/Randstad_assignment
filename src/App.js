@@ -12,16 +12,13 @@ function App() {
     fetch('https://jsonplaceholder.typicode.com/albums')
       .then((response) => response.json())
       .then((data) => {
-      
         const itemPromises = data.map((album) =>
           fetch(`https://jsonplaceholder.typicode.com/albums/${album.id}/photos`)
             .then((response) => response.json())
         );
 
-      
         Promise.all(itemPromises)
           .then((itemData) => {
-         
             const albumsWithItems = data.map((album, index) => ({
               ...album,
               items: itemData[index],
@@ -36,9 +33,7 @@ function App() {
     setSelectedCard(userId);
   };
 
-  
   const handleItemClick = (itemId) => {
-   
     setSeenItems((prevSeenItems) => ({
       ...prevSeenItems,
       [itemId]: true,
@@ -48,7 +43,6 @@ function App() {
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
-
 
   const filteredAlbums = albums.filter((album) =>
     album.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -61,7 +55,6 @@ function App() {
     grouped[album.userId].push(album);
     return grouped;
   }, {});
-
 
   const cardItemCounts = Object.keys(groupedAlbums).reduce((countObj, userId) => {
     const unseenItemCount = groupedAlbums[userId].reduce(
@@ -76,8 +69,7 @@ function App() {
     };
   }, {});
 
-  
-  const itemsToShow = selectedCard ? groupedAlbums[selectedCard][0].items : [];
+  const itemsToShow = selectedCard && groupedAlbums.hasOwnProperty(selectedCard) ? groupedAlbums[selectedCard][0].items : [];
 
   return (
     <div className="App">
@@ -97,6 +89,7 @@ function App() {
             onClick={() => handleCardClick(userId)}
           >
             <div className="item-count">{cardItemCounts[userId]}</div>
+            <div className="card-label">{`${groupedAlbums[userId][0].title} `}</div>
             <div className="card-label">{`UserID - ${userId}`}</div>
           </div>
         ))}
