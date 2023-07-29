@@ -97,7 +97,7 @@ function App() {
             onClick={() => handleCardClick(userId)}
           >
             <div className="item-count">{cardItemCounts[userId]}</div>
-            <div className="card-label">{`${groupedAlbums[userId][0].title} - ${userId}`}</div>
+            <div className="card-label">{`UserID - ${userId}`}</div>
           </div>
         ))}
       </div>
